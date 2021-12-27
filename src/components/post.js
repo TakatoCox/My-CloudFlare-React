@@ -21,7 +21,7 @@ const Post = ({ id }) => {
   return (
     <div>
       <h1>{post.title}</h1>
-      <p>{post.text}</p>
+      <p>{post.content}</p>
       <p>
         <em>Published {new Date(post.published_at).toLocaleString()}</em>
       </p>

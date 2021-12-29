@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "@reach/router";
+import Post from "./post";
+import CreatePost from "./createPost";
+
+import "../App.css"
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const getPosts = async () => {
-      const resp = await fetch(
-        "https://my-worker.takatocox.workers.dev/api/posts"
-      );
-      const postsResp = await resp.json();
-      setPosts(postsResp);
-    };
+  const getPosts = async () => {
+    const resp = await fetch('https://my-worker.takatocox.workers.dev/api/posts');
+    const postsResp = await resp.json();
+    setPosts(postsResp);
+  };
 
+  useEffect(() => {
     getPosts();
+    setInterval(getPosts, 30000); // 30 seconds
   }, []);
 
   return (
     <div>
-      <h1>Posts</h1>
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h2>
-            <Link to={`/posts/${post.id}`}>{post.title}</Link>
-          </h2>
-        </div>
-      ))}
+      <span className="pageTitle">PostMe</span>
+      <div className="postsContainer">
+        {
+          posts.map((post) => {
+            const parsedPost = JSON.parse(post)
+            return (
+                  <Post key={parsedPost.id} post={parsedPost}></Post>
+            )}
+          )
+        }
+      </div>
+      <CreatePost id={posts.length}></CreatePost>
     </div>
   );
 };

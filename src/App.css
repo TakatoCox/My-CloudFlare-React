@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+.pageTitle {
+    color: rgb(0, 255, 255);
+    font-size: 3rem;
+    position: fixed;
+    left: 20px;
+    font-family: cursive;
+}
+.postsContainer {
+    height: 80vh;
+    width: 100%;
+    background-color: rgb(244 164 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+}
+.postContainer {
+    width: 30vw;
+    border: black 2px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    min-height: 200px;
+    background-color: #ffffcf;
+}
+.postUsername {
+    color: red;
+    margin-left: 5px;
+}
+.postBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    justify-content: center;
+}
+.postTitle {
+    font-weight: bold;
+}
+.postContent {
+    font-size: small;
+}
+.createPostContainer {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffc5fb;
+    border-top: black solid 1px;
+}
+.createPostTitle {
+    color: rgb(0, 255, 255);
+    font-size: 2rem;
+    margin: 10px;
+}
+.createPostContainer label {
+    margin: 5px;
+}
+.successMessage {
+    color: green;
+}
+@media screen and (max-width: 500px) {
+    .pageTitle {
+        font-size: 2rem;
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 750px) {
+    .postsContainer {
+        height: 75vh;
+    }
+    .createPostContainer {
+        height: 25vh;
+    }
+    .createPostContainer form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

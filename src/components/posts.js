@@ -15,7 +15,7 @@ const Posts = () => {
 
   useEffect(() => {
     getPosts();
-    setInterval(getPosts, 30000); // 30 seconds
+    setInterval(getPosts, 5000); // 30 seconds
   }, []);
 
   return (
